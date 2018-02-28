@@ -48,7 +48,8 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
     	
     	//enable cors
     	  final FilterRegistration.Dynamic cors =
-    		        environment.servlets().addFilter("CORS", CrossOriginFilter.class);
+
+  	            environment.servlets().addFilter("/*",CrossOriginFilter.class );
 
     		    // Configure CORS parameters
     		    cors.setInitParameter("allowedOrigins", "*");
@@ -57,8 +58,34 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
 
     		    // Add URL mapping
     		    cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+    		    final FilterRegistration.Dynamic corsFilter = environment.servlets().addFilter("CORS", CrossOriginFilter.class);
+    	        corsFilter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+    	        corsFilter.setInitParameter(CrossOriginFilter.ALLOWED_HEADERS_PARAM,
+    	                "Content-Type,Authorization,X-Requested-With,Content-Length,Accept,Origin");
+    	        corsFilter.setInitParameter(CrossOriginFilter.ALLOWED_METHODS_PARAM, "GET,PUT,POST,DELETE,OPTIONS");
+    	        corsFilter.setInitParameter(CrossOriginFilter.ALLOWED_ORIGINS_PARAM, "https://*.localhost:8080/startup,http://localhost");
+    	        corsFilter.setInitParameter(CrossOriginFilter.ACCESS_CONTROL_ALLOW_ORIGIN_HEADER, "*");
     	
-    	
+    	        
+    	        
+    	        
+
+    	            // Configure CORS parameters
+    	            cors.setInitParameter("allowedOrigins", "*");
+    	            cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
+    	            cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
+
+    	            // Add URL mapping
+    	            cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+
+    	            // DO NOT pass a preflight request to down-stream auth filters
+    	            // unauthenticated preflight requests should be permitted by spec
+    	            cors.setInitParameter(CrossOriginFilter.CHAIN_PREFLIGHT_PARAM, Boolean.FALSE.toString());
+
+
+    	            
+ 
+    	            
         // Datasource configuration
         final DataSource dataSource =
             configuration.getDataSourceFactory().build(environment.metrics(), SQL);

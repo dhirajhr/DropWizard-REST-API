@@ -32,46 +32,37 @@ public abstract class PartsService {
   abstract PartsDao partsDao();
 
   public List<Part> getParts() {
-    return partsDao().getParts();
+    return partsDao().getPart();
   }
 
-  public Part getPart(int id) {
-    Part part = partsDao().getPart(id);
+  public Part getPart(String Restaurant) {
+    Part part = partsDao().getPart(Restaurant);
     if (Objects.isNull(part)) {
-      throw new WebApplicationException(String.format(PART_NOT_FOUND, id), Status.NOT_FOUND);
+      throw new WebApplicationException(String.format(PART_NOT_FOUND, Restaurant), Status.NOT_FOUND);
     }
     return part;
   }
 
   public Part createPart(Part part) {
     partsDao().createPart(part);
-    return partsDao().getPart(partsDao().lastInsertId());
+    //return partsDao().getPart(partsDao().lastInsertRestaurant());
+    return part;
   }
 
-  public Part editPart(Part part) {
-    if (Objects.isNull(partsDao().getPart(part.getId()))) {
-      throw new WebApplicationException(String.format(PART_NOT_FOUND, part.getId()),
+ /*public Part editPart(Part part) {
+    if (Objects.isNull(partsDao().getPart(part.getRestaurant()))) {
+      throw new WebApplicationException(String.format(PART_NOT_FOUND, part.getRestaurant()),
           Status.NOT_FOUND);
     }
     partsDao().editPart(part);
-    return partsDao().getPart(part.getId());
-  }
+    return partsDao().getPart(part.getRestaurant());
+  }*/
 
-  public String deletePart(final int id) {
-    int result = partsDao().deletePart(id);
-    switch (result) {
-      case 1:
-        return SUCCESS;
-      case 0:
-        throw new WebApplicationException(String.format(PART_NOT_FOUND, id), Status.NOT_FOUND);
-      default:
-        throw new WebApplicationException(UNEXPECTED_ERROR, Status.INTERNAL_SERVER_ERROR);
-    }
-  }
+
 
   public String performHealthCheck() {
     try {
-      partsDao().getParts();
+      partsDao().getPart();
     } catch (UnableToObtainConnectionException ex) {
       return checkUnableToObtainConnectionException(ex);
     } catch (UnableToExecuteStatementException ex) {

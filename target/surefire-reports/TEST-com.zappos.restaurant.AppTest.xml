@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.zappos.restaurant.AppTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="com.zappos.restaurant.AppTest" time="0.003" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="9.0.4+11"/>
@@ -27,9 +27,9 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\dramn\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf13442594719735835729.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\dramn\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf15739144996133153266.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-9.0.4\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\lenovo\easyplussdk\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Brackets\command;C:\Program Files\Java\jdk-9.0.4\bin;C:\Program Files (x86)\NoteBook FanControl\;C:\Users\dramn\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-9.0.4\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\lenovo\easyplussdk\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Brackets\command;C:\Program Files\Java\jdk-9.0.4\bin;C:\Program Files (x86)\NoteBook FanControl\;C:\Users\dramn\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\dramn\AppData\Local\Programs\Python\Python36\;C:\Users\dramn\AppData\Local\Microsoft\WindowsApps;C:\Users\dramn\AppData\Local\GitHubDesktop\bin;."/>
     <property name="jdk.debug" value="release"/>
     <property name="java.class.version" value="53.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -60,5 +60,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.zappos.restaurant.AppTest" name="testApp" time="0.001"/>
+  <testcase classname="com.zappos.restaurant.AppTest" name="testApp" time="0.003"/>
 </testsuite>

@@ -17,7 +17,7 @@ import org.eclipse.jetty.http.HttpStatus;
 
 import com.codahale.metrics.annotation.Timed;
 
-@Path("/parts")
+@Path("/startupcommercial")
 @Produces(MediaType.APPLICATION_JSON)
 @RolesAllowed("ADMIN")
 public class PartsResource {
@@ -35,9 +35,9 @@ public class PartsResource {
 
   @GET
   @Timed
-  @Path("{id}")
-  public Representation<Part> getPart(@PathParam("id") final int id) {
-    return new Representation<Part>(HttpStatus.OK_200, partsService.getPart(id));
+  @Path("{hid}")
+  public Representation<Part> getPart(@PathParam("hid") final String Restaurant) {
+    return new Representation<Part>(HttpStatus.OK_200, partsService.getPart(Restaurant));
   }
 
   @POST
@@ -46,19 +46,14 @@ public class PartsResource {
     return new Representation<Part>(HttpStatus.OK_200, partsService.createPart(part));
   }
 
-  @PUT
+ /* @PUT
   @Timed
   @Path("{id}")
   public Representation<Part> editPart(@NotNull @Valid final Part part,
       @PathParam("id") final int id) {
     part.setId(id);
     return new Representation<Part>(HttpStatus.OK_200, partsService.editPart(part));
-  }
+  }*/
 
-  @DELETE
-  @Timed
-  @Path("{id}")
-  public Representation<String> deletePart(@PathParam("id") final int id) {
-    return new Representation<String>(HttpStatus.OK_200, partsService.deletePart(id));
-  }
+
 }

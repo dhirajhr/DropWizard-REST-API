@@ -14,21 +14,22 @@ import com.zappos.restaurant.Part;
 @RegisterMapper(PartsMapper.class)
 public interface PartsDao {
 
-  @SqlQuery("select * from parts;")
-  public List<Part> getParts();
+  @SqlQuery("select * from startupcommercial;")
+  public List<Part> getPart();
 
-  @SqlQuery("select * from parts where id = :id")
-  public Part getPart(@Bind("id") final int id);
+  @SqlQuery("select * from startupcommercial where hid = :hid")
+  public Part getPart(@Bind("hid") final String hid);
+  
+  /*@SqlQuery("select /** from food where id = :id")
+  public Part getPart(@Bind("id") final int id);*/
 
-  @SqlUpdate("insert into parts(name, code) values(:name, :code)")
+  @SqlUpdate("insert into startupcommercial(hid, chunk, has_space) values(:hid, :chunk, :has_space)")
   void createPart(@BindBean final Part part);
 
-  @SqlUpdate("update parts set name = coalesce(:name, name), code = coalesce(:code, code) where id = :id")
-  void editPart(@BindBean final Part part);
+ /* @SqlUpdate("update food set name = coalesce(:name, name), code = coalesce(:code, code) where id = :id")
+  void editPart(@BindBean final Part part);*/
 
-  @SqlUpdate("delete from parts where id = :id")
-  int deletePart(@Bind("id") final int id);
 
-  @SqlQuery("select last_insert_id();")
-  public int lastInsertId();
+  /*@SqlQuery("select last_insert_Restaurant();")
+  public String lastInsertRestaurant();*/
 }
